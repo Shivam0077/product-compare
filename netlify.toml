@@ -1,0 +1,7 @@
+product-compare/
+  netlify.toml   ✅ (yahin)
+  package.json
+  vite.config.js
+  index.html
+  src/
+  public/

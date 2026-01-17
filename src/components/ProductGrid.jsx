@@ -1,0 +1,21 @@
+import React from "react";
+import ProductCard from "./productCard";
+
+export default function ProductGrid({
+  products,
+  selected,
+  onToggleCompare,
+}) {
+  return (
+    <div className="grid">
+      {products.map((p) => (
+        <ProductCard
+          key={p.id}
+          product={p}
+          isSelected={selected.some((s) => s.id === p.id)}
+          onToggleCompare={onToggleCompare}
+        />
+      ))}
+    </div>
+  );
+}

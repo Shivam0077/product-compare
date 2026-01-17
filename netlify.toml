@@ -1,5 +1,5 @@
 product-compare/
-  netlify.toml   ✅ (yahin)
+  netlify.toml
   package.json
   vite.config.js
   index.html

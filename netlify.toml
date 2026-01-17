@@ -1,7 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
 
-  netlify.toml
-  package.json
-  vite.config.js
-  index.html
-  src/
-  public/
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

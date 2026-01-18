@@ -404,7 +404,7 @@ body {
 /* ✅ Highlight differences */
 .spec-value.diff {
   background: var(--table-diff);
-  font-weight: 800;
+  font-weight: 500;
 }
 
 /* Table product header */
@@ -464,9 +464,9 @@ body {
     width: 100%;
   }
 
-  .drawer-table-scroll {
+  /* .drawer-table-scroll {
     overflow-x: hidden;
-  }
+  } */
 
   .table-product-name {
     max-width: 110px;

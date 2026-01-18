@@ -134,7 +134,6 @@ export default function CompareDrawer({ open, onClose, selected, onClear }) {
                     <tr className="spec-label-row">
                       <td className="spec-label" colSpan={selected.length}>
                         {row.label}{" "}
-                        {showDiffOnly && diff ? "⚡" : ""}
                       </td>
                     </tr>
 

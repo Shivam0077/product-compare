@@ -403,7 +403,7 @@ body {
 
 /* ✅ Highlight differences */
 .spec-value.diff {
-  background: var(--table-diff);
+  /* background: var(--table-diff); */
   font-weight: 500;
 }
 

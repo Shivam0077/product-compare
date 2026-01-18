@@ -1,6 +1,3 @@
-/* =========================
-   THEME TOKENS
-========================= */
 :root {
   --bg: #ffffff;
   --text: #111;
@@ -8,8 +5,13 @@
   --muted: #666;
   --primary: #2563eb;
   --danger: #dc2626;
-  --border: #ddd;
-  --diff: #d1fae5;
+  --border: #e5e7eb;
+
+  /* table */
+  --table-head: #f9fafb;
+  --table-section: #f3f4f6;
+  --table-cell: #ffffff;
+  --table-diff: #ecfdf5;
 }
 
 body[data-theme="dark"] {
@@ -18,12 +20,13 @@ body[data-theme="dark"] {
   --card: #111a2e;
   --muted: #9aa4b2;
   --border: #22304b;
-  --diff: #1f3a2b;
+
+  --table-head: #111a2e;
+  --table-section: #0f1b33;
+  --table-cell: #0b1220;
+  --table-diff: #123325;
 }
 
-/* =========================
-   GLOBAL BASE
-========================= */
 * {
   box-sizing: border-box;
 }
@@ -35,28 +38,21 @@ body {
   color: var(--text);
 }
 
-/* =========================
-   APP LAYOUT
-========================= */
 .app {
   max-width: 1100px;
   margin: auto;
-  padding: 20px;
-
-  /* space for sticky compare tray */
+  padding: 16px;
   padding-bottom: 120px;
 }
 
-/* =========================
-   STICKY HEADER
-========================= */
+/* HEADER */
 .header {
   position: sticky;
   top: 0;
   z-index: 10;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
-  padding: 12px 0;
+  padding: 10px 0;
 
   display: flex;
   align-items: center;
@@ -66,11 +62,8 @@ body {
 
 .app-title {
   margin: 0;
-  font-size: 18px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-size: 16px;
+  font-weight: 800;
 }
 
 .header-actions {
@@ -79,9 +72,34 @@ body {
   gap: 10px;
 }
 
-/* =========================
-   TEXT HELPERS
-========================= */
+/* Search in header */
+.search input {
+  width: 260px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  outline: none;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search input {
+    width: 100%;
+  }
+}
+
 .muted {
   color: var(--muted);
 }
@@ -90,27 +108,12 @@ body {
   font-size: 12px;
 }
 
-/* =========================
-   SEARCH
-========================= */
-.search input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--text);
-  outline: none;
-  margin: 14px 0 16px 0;
-}
-
-/* =========================
-   PRODUCT GRID + CARD
-========================= */
+/* GRID + CARD */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: 12px;
+  margin-top: 14px;
 }
 
 .card {
@@ -124,25 +127,25 @@ body {
 
 .card-img {
   width: 100%;
-  height: 160px;
+  height: 150px;
   object-fit: cover;
 }
 
 .card-body {
-  padding: 14px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .card-title h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .price {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 800;
   margin: 0;
 }
 
@@ -150,18 +153,16 @@ body {
   padding-left: 18px;
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTONS */
 .btn {
   padding: 10px 12px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .btn-primary {
@@ -180,34 +181,17 @@ body {
   color: var(--text);
 }
 
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* =========================
-   COMPARE BAR (STICKY BOTTOM)
-========================= */
+/* COMPARE BAR */
 .compare-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: var(--card);
   border: 1px solid var(--border);
-  padding: 12px;
+  padding: 10px;
   border-radius: 14px;
   gap: 10px;
   flex-wrap: wrap;
-}
-
-.compare-bar.sticky {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 16px;
-  width: min(1100px, calc(100% - 24px));
-  z-index: 50;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .compare-items {
@@ -222,8 +206,9 @@ body {
   gap: 8px;
   background: var(--bg);
   border: 1px solid var(--border);
-  padding: 8px 10px;
+  padding: 7px 10px;
   border-radius: 999px;
+  font-size: 13px;
 }
 
 .chip-btn {
@@ -234,15 +219,29 @@ body {
   color: var(--danger);
 }
 
-/* =========================
-   DRAWER OVERLAY + DRAWER
-========================= */
+.compare-bar.sticky {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 360px;
+  z-index: 50;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 700px) {
+  .compare-bar.sticky {
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+}
+
+/* DRAWER OVERLAY + DRAWER */
 .drawer-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
   z-index: 60;
-
   opacity: 0;
   transition: opacity 200ms ease;
 }
@@ -251,23 +250,21 @@ body {
   opacity: 1;
 }
 
-/* Drawer (Desktop Right Panel) */
 .drawer {
   position: fixed;
   top: 0;
   right: 0;
   height: 100%;
-  width: min(520px, 92vw);
+  width: min(620px, 92vw);
   background: var(--bg);
   border-left: 1px solid var(--border);
   z-index: 70;
 
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 14px;
   overflow: hidden;
 
-  /* Expand animation (feels like from compare bar) */
   transform: translateX(40px) scale(0.96);
   opacity: 0;
   transform-origin: bottom right;
@@ -279,7 +276,6 @@ body {
   opacity: 1;
 }
 
-/* Drawer header */
 .drawer-header {
   display: flex;
   align-items: flex-start;
@@ -302,15 +298,20 @@ body {
   padding: 8px 10px;
 }
 
-/* Chips inside drawer */
-.drawer-chips {
+.drawer-toolbar {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding: 12px 0;
+  justify-content: flex-end;
+  padding: 4px 0 10px;
 }
 
-/* Table scroll inside drawer */
+.diff-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
 .drawer-table-scroll {
   flex: 1;
   overflow: auto;
@@ -318,30 +319,6 @@ body {
   border-radius: 12px;
 }
 
-/* Compare table */
-.compare-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 600px;
-}
-
-.compare-table th,
-.compare-table td {
-  border: 1px solid var(--border);
-  padding: 10px;
-  text-align: center;
-}
-
-.feature-name {
-  font-weight: bold;
-  text-align: left;
-}
-
-.diff {
-  background: var(--diff);
-}
-
-/* Drawer footer */
 .drawer-footer {
   display: flex;
   gap: 10px;
@@ -349,22 +326,7 @@ body {
   padding-top: 12px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Mobile: turn drawer into bottom sheet */
+/* Mobile drawer */
 @media (max-width: 700px) {
   .drawer {
     top: auto;
@@ -385,24 +347,232 @@ body {
   }
 }
 
-
-.compare-bar.sticky {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-
-  left: auto;
-  transform: none;
-
-  width: 360px; /* adjust as you want */
-  z-index: 50;
-
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+/* Selected items with images */
+.drawer-selected {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
 }
-@media (max-width: 700px) {
-  .compare-bar.sticky {
-    left: 12px;
-    right: 12px;
-    width: auto;
+
+.drawer-selected-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.drawer-selected-img {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.drawer-selected-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.drawer-selected-name {
+  margin: 0;
+  font-weight: 800;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drawer-remove-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 6px 10px;
+  color: var(--danger);
+}
+
+/* COMPARE TABLE */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px;
+}
+
+.compare-table th,
+.compare-table td {
+  border: 1px solid var(--border);
+}
+
+.compare-table thead th {
+  /* padding: 10px;
+  background: var(--table-head);
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+ */
+    padding: 10px;
+  background: var(--table-head);
+  font-size: 13px;
+  font-weight: 800;
+  text-align: left;
+
+}
+
+.spec-label-row .spec-label {
+  padding: 8px;
+  background: var(--table-section);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.spec-value-row .spec-value {
+  padding: 10px;
+  background: var(--table-cell);
+  text-align: center;
+  font-size: 13px;
+}
+
+/* RESPONSIVE GRID */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Table product header */
+.table-product-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.table-product-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.table-product-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.table-product-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.table-brand-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-product-name {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.table-product-price {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* fallback dot if brand icon missing */
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+  background: var(--muted);
+}
+.card-title{
+    display: flex;
+    gap: 5px;
+}
+
+
+
+.table-product-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.table-product-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.table-product-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.table-product-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.table-brand-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-product-name {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.table-product-price {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text);
+  opacity: 0.9;
 }

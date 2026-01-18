@@ -1,5 +1,12 @@
 import React from "react";
 
+import BrandIcon from "./icons/BrandIcon"; // adjust path
+
+// <div className="compare-chip">
+//   <BrandIcon brand={p.brand} size={14} />
+//   <span>{p.name}</span>
+// </div>
+
 export default function CompareBar({ selected, onRemove, onClear, onCompare }) {
   if (selected.length < 2) return null;
 
@@ -9,6 +16,7 @@ export default function CompareBar({ selected, onRemove, onClear, onCompare }) {
         {selected.map((p) => (
           <div key={p.id} className="compare-chip">
             <span>{p.name}</span>
+            <BrandIcon brand={p.brand} size={14} />
             <button className="chip-btn" onClick={() => onRemove(p.id)}>
               ✖
             </button>

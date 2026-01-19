@@ -165,7 +165,7 @@ body {
 
 .price {
     font-size: 16px;
-    font-weight: 800;
+    /* font-weight: 800; */
     margin: 0;
     display: flex;
     justify-content: end;
@@ -173,10 +173,15 @@ body {
 }
 
 .feature-list {
-  padding-left: 18px;
+  padding-left: 0;
   margin: 0;
   color: var(--muted);
   font-size: 13px;
+}
+
+.spec-item{
+  display: flex;
+  gap: 5px;
 }
 
 /* BUTTONS */

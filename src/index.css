@@ -151,9 +151,11 @@ body {
 }
 
 .card-title {
-  display: flex;
-  gap: 6px;
-  align-items: center;
+
+      display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: -webkit-fill-available;
 }
 
 .card-title h3 {
@@ -162,9 +164,12 @@ body {
 }
 
 .price {
-  font-size: 16px;
-  font-weight: 800;
-  margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    justify-content: end;
+
 }
 
 .feature-list {

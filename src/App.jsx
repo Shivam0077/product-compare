@@ -132,7 +132,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1 className="app-title">📱 Product Compare</h1>
+        <h1 className="app-title">Compare</h1>
 
         <div className="header-actions">
           <SearchBar value={query} onChange={setQuery} />

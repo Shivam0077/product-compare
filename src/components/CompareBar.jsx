@@ -1,11 +1,5 @@
 import React from "react";
-
-import BrandIcon from "./icons/BrandIcon"; // adjust path
-
-// <div className="compare-chip">
-//   <BrandIcon brand={p.brand} size={14} />
-//   <span>{p.name}</span>
-// </div>
+import BrandIcon from "./icons/BrandIcon";
 
 export default function CompareBar({ selected, onRemove, onClear, onCompare }) {
   if (selected.length < 2) return null;

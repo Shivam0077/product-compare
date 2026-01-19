@@ -41,7 +41,6 @@ export default function CompareDrawer({ open, onClose, selected, onClear }) {
     return String(val).toLowerCase().replace(/\s+/g, " ").trim();
   };
 
-  // ✅ Precompute which keys are different
   const diffMap = useMemo(() => {
     const map = {};
 
@@ -60,14 +59,12 @@ export default function CompareDrawer({ open, onClose, selected, onClear }) {
 
   return (
     <>
-      {/* Overlay */}
       <div
         className={`drawer-overlay ${open ? "open" : ""}`}
         onClick={onClose}
         style={{ pointerEvents: open ? "auto" : "none" }}
       />
 
-      {/* Drawer */}
       <aside
         className={`drawer ${open ? "open" : ""}`}
         style={{ pointerEvents: open ? "auto" : "none" }}

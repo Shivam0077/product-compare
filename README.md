@@ -1,16 +1,68 @@
-# React + Vite
+# Product Comparison UI (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive product comparison web app where users can select up to 3 products and compare them side-by-side.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌍 Live Demo
+https://vermillion-paletas-52272c.netlify.app/
 
-## React Compiler
+## 📦 GitHub Repository
+https://github.com/Shivam0077/product-compare.git
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Product Listing
+- Displays **8 products** in a responsive grid
+- Each product shows:
+  - Name
+  - Brand (with icon)
+  - Image
+  - Price
+  - 3 key features (Battery, Display, Camera)
+
+### Compare Flow
+- Users can select **up to 3 products**
+- Compare bar appears only when **2 or more products** are selected
+- Remove individual items from compare list
+- Clear all selected products
+
+### Comparison View
+- Side-by-side comparison inside a **drawer**
+- Highlights differences visually
+- Option: **Show differences only**
+
+### Bonus Enhancements
+- Search by product name / brand
+- Light/Dark theme toggle
+- localStorage persistence for:
+  - selected compare items
+  - theme preference
+- Responsive design (mobile + desktop)
+- Background scroll lock when drawer is open
+
+---
+
+## ✅ Assumptions
+- Static product data is used (no API/backend)
+- Users can compare **maximum 3 products**
+- Compare drawer opens only when user clicks **Compare**
+- Compare bar is shown only when at least **2 products** are selected
+
+---
+
+## 🛠 Tech Stack
+- React (Vite)
+- HTML5 / CSS3
+- JavaScript (ES6+)
+
+---
+
+## 🧑‍💻 Setup Instructions
+
+### 1) Clone the repository
+```bash
+git clone https://github.com/Shivam0077/product-compare.git
+cd product-compare

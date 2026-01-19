@@ -18,7 +18,6 @@ export default function ProductCard({ product, isSelected, onToggleCompare }) {
         <p className="price">₹{product.price.toLocaleString("en-IN")}</p>
 
 
-
         <ul className="feature-list">
           <li>🔋 {product.features.battery}</li>
           <li>📺 {product.features.display}</li>

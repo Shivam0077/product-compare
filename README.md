@@ -1,68 +1,70 @@
 # Product Comparison UI (React)
 
-A responsive product comparison web app where users can select up to 3 products and compare them side-by-side.
+A responsive product comparison web app where users can select up to **3 products** and compare them side-by-side inside a drawer.
 
 ---
 
-## 🌍 Live Demo
+## Live Demo
 https://vermillion-paletas-52272c.netlify.app/
 
-## 📦 GitHub Repository
+## GitHub Repository
 https://github.com/Shivam0077/product-compare.git
 
----
-
-## 🚀 Features
+## Features
 
 ### Product Listing
-- Displays **8 products** in a responsive grid
-- Each product shows:
-  - Name
+- Displays **8 products** in a responsive grid layout
+- Each product card includes:
+  - Product name
   - Brand (with icon)
-  - Image
+  - Product image
   - Price
-  - 3 key features (Battery, Display, Camera)
+  - Key specs:
+    - Battery
+    - Display
+    - Camera
 
 ### Compare Flow
-- Users can select **up to 3 products**
+- Users can select **up to 3 products** for comparison
 - Compare bar appears only when **2 or more products** are selected
-- Remove individual items from compare list
-- Clear all selected products
+- Users can:
+  - Remove individual products from compare list
+  - Clear all selected products at once
 
-### Comparison View
-- Side-by-side comparison inside a **drawer**
-- Highlights differences visually
-- Option: **Show differences only**
+### Comparison View (Drawer)
+- Side-by-side comparison inside a **drawer panel**
+- Differences are visually highlighted
+- Option available:
+  - **Show differences only**
 
 ### Bonus Enhancements
-- Search by product name / brand
+- Search by product **name / brand**
 - Light/Dark theme toggle
-- localStorage persistence for:
-  - selected compare items
+- `localStorage` persistence for:
+  - selected compare products
   - theme preference
-- Responsive design (mobile + desktop)
-- Background scroll lock when drawer is open
+- Fully responsive UI (mobile + desktop)
+- Background scroll lock when compare drawer is open
 
----
-
-## ✅ Assumptions
-- Static product data is used (no API/backend)
-- Users can compare **maximum 3 products**
+## Assumptions
+- Static product data is used (no backend/API)
+- Maximum **3 products** can be compared
 - Compare drawer opens only when user clicks **Compare**
-- Compare bar is shown only when at least **2 products** are selected
+- Compare bar is visible only when at least **2 products** are selected
+- On reload:
+  - if previously selected items exist, user is prompted
+  - checkbox available: **Don’t show again**
 
----
 
-## 🛠 Tech Stack
+## Tech Stack
 - React (Vite)
 - HTML5 / CSS3
 - JavaScript (ES6+)
 
 ---
 
-## 🧑‍💻 Setup Instructions
+##  Setup Instructions
 
-### 1) Clone the repository
-```bash
+### Clone the repository
 git clone https://github.com/Shivam0077/product-compare.git
 cd product-compare
